@@ -2,7 +2,7 @@
   <div class="overflow-hidden min-h-screen flex justify-left" v-if="playbackState != 'stopped'">
     <div className="flex items-start justify-end">
       <div
-        class="bg-[#000000cc] relative inline-flex flex-col overflow-hidden text-white border border-white border-opacity-20 shadow"
+        class="bg-[#000000cc] relative inline-flex flex-col overflow-hidden text-white"
         style="transition: 'width 1s linear'">
         <div className="inline-flex items-center py-2 pl-2 pr-4">
           <div class="absolute bg-center filter blur-sm bg-contain inset-0 w-full h-full z-[-1]"
@@ -12,7 +12,7 @@
           </div>
 
 
-          <div id="songinfo" class="w-72 overflow-hidden" ref="songinfo">
+          <div id="songinfo" class="w-56 overflow-hidden" ref="songinfo">
             <h1 class="text-2xl mb-1 whitespace-nowrap text-clip" :key="song.title" ref="songtitle"><b>{{ song.title
             }}</b></h1>
             <h2 className="text-gray-100 text-lg whitespace-nowrap" :key="song.artist" ref="songartist">{{ song.artist }}</h2>
@@ -95,7 +95,7 @@ export default {
           // scroll song
           let scrollSong = this.scrollSongName();
           if (scrollSong) {
-            this.$data.scrollSongAnim = gsap.timeline({ repeat: -1, }).set(this.$refs.songtitle, { xPercent: 140 }).to(this.$refs.songtitle, { duration: 20, xPercent: -140, ease: 'none' });
+            this.$data.scrollSongAnim = gsap.timeline({ repeat: -1, }).set(this.$refs.songtitle, { xPercent: 140 }).to(this.$refs.songtitle, { duration: 20, xPercent: -180, ease: 'none' });
           } else if (!scrollSong) {
             if (this.$data.scrollSongAnim) {
               this.$data.scrollSongAnim.remove();
